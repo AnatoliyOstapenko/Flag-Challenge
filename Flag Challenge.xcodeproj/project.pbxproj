@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F9291CE72D4B97A000A6CD9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F9291CE62D4B97A000A6CD9F /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F9291C262D4B86DB00A6CD9F /* Flag Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flag Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9291CE72D4B97A000A6CD9F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "Flag Challenge";
 			packageProductDependencies = (
+				F9291CE62D4B97A000A6CD9F /* SnapKit */,
 			);
 			productName = "Flag Challenge";
 			productReference = F9291C262D4B86DB00A6CD9F /* Flag Challenge.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = F9291C1D2D4B86DB00A6CD9F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F9291CE52D4B97A000A6CD9F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F9291C272D4B86DB00A6CD9F /* Products */;
 			projectDirPath = "";
@@ -333,6 +342,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F9291CE52D4B97A000A6CD9F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9291CE62D4B97A000A6CD9F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9291CE52D4B97A000A6CD9F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9291C1E2D4B86DB00A6CD9F /* Project object */;
 }
