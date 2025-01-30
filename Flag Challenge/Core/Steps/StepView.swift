@@ -23,6 +23,9 @@ struct StepView: View {
             }
             .blur(radius: viewModel.isSnackbarVisible ? 5 : 0)
             .padding(.horizontal)
+            .onAppear {
+                viewModel.resetGame()
+            }
             
             SnackbarView(
                 state: viewModel.snackbar,

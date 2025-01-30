@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol InitialCoordinatorProtocol: Coordinator {
     func startGame()
+    func finishGame()
 }
 
 class InitialCoordinator: InitialCoordinatorProtocol {
@@ -29,11 +30,11 @@ class InitialCoordinator: InitialCoordinatorProtocol {
 
     func startGame() {
         let stepView = UIHostingController(rootView: StepView(viewModel: viewModel))
-        viewModel.resetGame()
-        viewModel.onGameFinished = { [weak self] in
-            self?.navController.popViewController(animated: true)
-        }
         navController.pushViewController(stepView, animated: true)
+    }
+    
+    func finishGame() {
+        navController.popViewController(animated: true)
     }
 }
 

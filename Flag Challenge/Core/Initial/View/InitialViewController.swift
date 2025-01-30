@@ -78,6 +78,12 @@ class InitialViewController: UIViewController {
                 self?.resultLabel.text = text
             }
             .store(in: &cancellables)
+        
+        viewModel.gameOver
+            .sink { [weak self] _ in
+                self?.coordinator?.finishGame()
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: UI Configuration

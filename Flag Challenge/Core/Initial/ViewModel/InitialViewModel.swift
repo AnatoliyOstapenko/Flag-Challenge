@@ -9,11 +9,11 @@ import SwiftUI
 import Combine
 
 class InitialViewModel: ObservableObject {
-    var onGameFinished: (() -> Void)?
     // Game items
     @Published var result: String?
     @Published var countries: [Country] = []
     @Published var currentQuestion: Country?
+    let gameOver = PassthroughSubject<Void, Never>()
     // Snackbar
     @Published var isSnackbarVisible = false
     @Published var snackbar: SnackbarState = .fail
@@ -24,11 +24,6 @@ class InitialViewModel: ObservableObject {
         
     init() {
         countries = Country.mockCountries
-        getCurrentQuestion()
-    }
-    
-    func getCurrentQuestion() {
-        currentQuestion = countries.first(where: {$0.step == step})
     }
 
     func checkAnswer(for selectedCountry: CountryButton) {
@@ -51,13 +46,17 @@ class InitialViewModel: ObservableObject {
         getCurrentQuestion()
     }
     
+    private func getCurrentQuestion() {
+        currentQuestion = countries.first(where: {$0.step == step})
+    }
+    
     private func nextStep() {
         if step < countries.count {
             step += 1
             getCurrentQuestion()
         } else {
             result = "Last game result: \nCorrect: \(correctAnswer) \nWrong: \(wrongAnswer)"
-            onGameFinished?()
+            gameOver.send()
         }
     }
 }
